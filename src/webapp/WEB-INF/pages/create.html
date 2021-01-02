@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crete user</title>
+    <style>
+        body{
+            width: 100%;
+            min-height: 550px;
+        }
+        div {
+            margin: 10px;
+        }
+
+        .block {
+            width: 400px;
+            height: 250px;
+        }
+
+        .field {
+            clear: both;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/create}" th:object="${user}" method="post">
+    <div class="block">
+        <div class="field">
+            <h2>Create user</h2>
+        </div>
+        <div class="field">
+            <label>Name:
+                <input  type="text" placeholder="name"  th:field="${user.name}">
+            </label></div>
+        <div class="field">
+            <label>Surname:
+                <input type="text" placeholder="surname" th:field="${user.surname}">
+            </label></div>
+        <div class="field">
+            <label>Age:
+                <input  type="number" placeholder="age" min="0" th:field="${user.age}">
+            </label></div>
+        <div class="field">
+            <input type="submit" value="create">
+        </div>
+    </div>
+</form>
+</body>
+</html>
