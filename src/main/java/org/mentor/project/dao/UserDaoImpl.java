@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDao{
     public List<User> getAll() {
         EntityManager manager = factory.createEntityManager();
         manager.getTransaction().begin();
-        List<User> list =  factory.createEntityManager()
+        List<User> list =  manager
                 .createNativeQuery("SELECT * FROM persons",User.class).getResultList();
         manager.getTransaction().commit();
         return list;
@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDao{
     public User findById(Long id) {
         EntityManager manager = factory.createEntityManager();
         manager.getTransaction().begin();
-        User user = factory.createEntityManager().find(User.class,id);
+        User user = manager.find(User.class,id);
         manager.getTransaction().commit();
         return user;
     }
